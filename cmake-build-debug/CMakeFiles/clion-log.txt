@@ -1,0 +1,9 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -G Ninja -S /Users/jhiz2704/C++Projects/CellularAutomata2D -B /Users/jhiz2704/C++Projects/CellularAutomata2D/cmake-build-debug
+-- start running cmake...
+-- Boost_INCLUDE_DIRS: /opt/homebrew/include
+-- Boost_LIBRARIES: Boost::system;Boost::filesystem
+-- Boost_VERSION: 1.79.0
+-- Found SFML 2.5.1 in /opt/homebrew/lib/cmake/SFML
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/jhiz2704/C++Projects/CellularAutomata2D/cmake-build-debug

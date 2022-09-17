@@ -1,0 +1,3 @@
+/Users/jhiz2704/C++Projects/CellularAutomata2D/cmake-build-debug/CMakeFiles/CellularAutomata2D.dir
+/Users/jhiz2704/C++Projects/CellularAutomata2D/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/jhiz2704/C++Projects/CellularAutomata2D/cmake-build-debug/CMakeFiles/rebuild_cache.dir

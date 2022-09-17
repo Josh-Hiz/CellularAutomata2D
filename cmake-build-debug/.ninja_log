@@ -1,0 +1,4 @@
+# ninja log v5
+0	42	1663451192844146660	build.ninja	d9cdafc7d717cbf4
+0	285	1663450862049351046	CMakeFiles/CellularAutomata2D.dir/main.cpp.o	55148fc5a1c01587
+286	314	1663450862078969248	CellularAutomata2D	c7dfdaf772e36e43
