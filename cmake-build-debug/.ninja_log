@@ -1,4 +1,10 @@
 # ninja log v5
-0	42	1663451192844146660	build.ninja	d9cdafc7d717cbf4
-0	285	1663450862049351046	CMakeFiles/CellularAutomata2D.dir/main.cpp.o	55148fc5a1c01587
-286	314	1663450862078969248	CellularAutomata2D	c7dfdaf772e36e43
+0	42	1663600826387030922	build.ninja	d9cdafc7d717cbf4
+2	511	1663600684706289360	CMakeFiles/CellularAutomata2D.dir/main.cpp.o	9d34e4360bbbc8ae
+511	590	1663600684788021646	CellularAutomata2D	334b928cdfa7119
+1	18	1663600833977032922	CMakeFiles/CellularAutomata2D.dir/GridManager/Grid.cpp.o	798e705b5edf59e7
+1	18	1663600833977726510	CMakeFiles/CellularAutomata2D.dir/GridManager/Nodes.cpp.o	47b1b1354d8f413a
+18	49	1663600834008027415	CellularAutomata2D	c22ac2a38e5d6c09
+2	410	1664224020430564315	CMakeFiles/CellularAutomata2D.dir/GridManager/Nodes.cpp.o	47b1b1354d8f413a
+2	421	1664224020443455155	CMakeFiles/CellularAutomata2D.dir/GridManager/Grid.cpp.o	798e705b5edf59e7
+422	501	1664224020524855992	CellularAutomata2D	c22ac2a38e5d6c09

@@ -14,7 +14,7 @@ if(Boost_FOUND)
 
 endif()
 
-add_executable(CellularAutomata2D main.cpp)
+add_executable(CellularAutomata2D main.cpp GridManager/Grid.cpp GridManager/Grid.h GridManager/Nodes.cpp GridManager/Nodes.h)
 
 include_directories(/opt/homebrew/Cellar)
 

@@ -54,6 +54,22 @@ build CMakeFiles/CellularAutomata2D.dir/main.cpp.o: CXX_COMPILER__CellularAutoma
   OBJECT_DIR = CMakeFiles/CellularAutomata2D.dir
   OBJECT_FILE_DIR = CMakeFiles/CellularAutomata2D.dir
 
+build CMakeFiles/CellularAutomata2D.dir/GridManager/Grid.cpp.o: CXX_COMPILER__CellularAutomata2D_Debug /Users/jhiz2704/C++Projects/CellularAutomata2D/GridManager/Grid.cpp || cmake_object_order_depends_target_CellularAutomata2D
+  DEFINES = -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_FILESYSTEM_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB
+  DEP_FILE = CMakeFiles/CellularAutomata2D.dir/GridManager/Grid.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++20
+  INCLUDES = -I/opt/homebrew/Cellar -isystem /opt/homebrew/include
+  OBJECT_DIR = CMakeFiles/CellularAutomata2D.dir
+  OBJECT_FILE_DIR = CMakeFiles/CellularAutomata2D.dir/GridManager
+
+build CMakeFiles/CellularAutomata2D.dir/GridManager/Nodes.cpp.o: CXX_COMPILER__CellularAutomata2D_Debug /Users/jhiz2704/C++Projects/CellularAutomata2D/GridManager/Nodes.cpp || cmake_object_order_depends_target_CellularAutomata2D
+  DEFINES = -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_FILESYSTEM_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB
+  DEP_FILE = CMakeFiles/CellularAutomata2D.dir/GridManager/Nodes.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++20
+  INCLUDES = -I/opt/homebrew/Cellar -isystem /opt/homebrew/include
+  OBJECT_DIR = CMakeFiles/CellularAutomata2D.dir
+  OBJECT_FILE_DIR = CMakeFiles/CellularAutomata2D.dir/GridManager
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target CellularAutomata2D
@@ -62,7 +78,7 @@ build CMakeFiles/CellularAutomata2D.dir/main.cpp.o: CXX_COMPILER__CellularAutoma
 #############################################
 # Link the executable CellularAutomata2D
 
-build CellularAutomata2D: CXX_EXECUTABLE_LINKER__CellularAutomata2D_Debug CMakeFiles/CellularAutomata2D.dir/main.cpp.o | /opt/homebrew/lib/libsfml-graphics.2.5.1.dylib /opt/homebrew/lib/libsfml-audio.2.5.1.dylib /opt/homebrew/lib/libsfml-network.2.5.1.dylib /opt/homebrew/lib/libboost_system-mt.dylib /opt/homebrew/lib/libboost_filesystem-mt.dylib /opt/homebrew/lib/libsfml-window.2.5.1.dylib /opt/homebrew/lib/libsfml-system.2.5.1.dylib /opt/homebrew/lib/libboost_atomic-mt.dylib
+build CellularAutomata2D: CXX_EXECUTABLE_LINKER__CellularAutomata2D_Debug CMakeFiles/CellularAutomata2D.dir/main.cpp.o CMakeFiles/CellularAutomata2D.dir/GridManager/Grid.cpp.o CMakeFiles/CellularAutomata2D.dir/GridManager/Nodes.cpp.o | /opt/homebrew/lib/libsfml-graphics.2.5.1.dylib /opt/homebrew/lib/libsfml-audio.2.5.1.dylib /opt/homebrew/lib/libsfml-network.2.5.1.dylib /opt/homebrew/lib/libboost_system-mt.dylib /opt/homebrew/lib/libboost_filesystem-mt.dylib /opt/homebrew/lib/libsfml-window.2.5.1.dylib /opt/homebrew/lib/libsfml-system.2.5.1.dylib /opt/homebrew/lib/libboost_atomic-mt.dylib
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk
   LINK_LIBRARIES = -Wl,-rpath,/opt/homebrew/lib  /opt/homebrew/lib/libsfml-graphics.2.5.1.dylib  /opt/homebrew/lib/libsfml-audio.2.5.1.dylib  /opt/homebrew/lib/libsfml-network.2.5.1.dylib  /opt/homebrew/lib/libboost_system-mt.dylib  /opt/homebrew/lib/libboost_filesystem-mt.dylib  /opt/homebrew/lib/libsfml-window.2.5.1.dylib  /opt/homebrew/lib/libsfml-system.2.5.1.dylib  /opt/homebrew/lib/libboost_atomic-mt.dylib
   OBJECT_DIR = CMakeFiles/CellularAutomata2D.dir
