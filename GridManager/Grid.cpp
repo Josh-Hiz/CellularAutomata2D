@@ -43,10 +43,7 @@ void Grid::setNodeSize(const int32_t & nodeDimension)
     nodeSize = nodeDimension;
 }
 
-Grid::Grid()
-{
-    initGrid();
-}
+Grid::Grid() = default;
 
 Grid::~Grid()
 {
@@ -63,8 +60,9 @@ void Grid::initGrid()
         for(int32_t j = 0; j < rows; j++)
         {
             grid[i][j].setSize(nodeDimensions); //Will index out of bounds error if not initialized first
+            grid[i][j].setFillColor(sf::Color::White);
             grid[i][j].setOutlineColor(sf::Color::Black);
-            grid[i][j].setOutlineThickness(5.0f);
+            grid[i][j].setOutlineThickness(1.0f);
 
             grid[i][j].setPosition(i*nodeDimensions.x + 5.0f, j*nodeDimensions.y + 5.0f);
 

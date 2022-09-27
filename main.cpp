@@ -8,6 +8,14 @@ const int32_t windowHeight = 1080;
 
 int main() {
 
+    //Init Grid
+    Grid grid;
+
+    grid.setCols(30);
+    grid.setRows(30);
+    grid.setNodeSize(10);
+    grid.initGrid();
+
     //Basic window setup
 
     sf::RenderWindow window(sf::VideoMode(windowWidth,windowHeight), "Cellular Automata");
