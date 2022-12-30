@@ -14,9 +14,9 @@ if(Boost_FOUND)
 
 endif()
 
-add_executable(CellularAutomata2D main.cpp GridManager/Grid.cpp GridManager/Grid.h GridManager/Nodes.cpp GridManager/Nodes.h)
+add_executable(CellularAutomata2D main.cpp Include/Grid.h Grid.cpp Include/Cell.h Cell.cpp)
 
-include_directories(/opt/homebrew/Cellar)
+include_directories(/opt/homebrew/Cellar/sfml)
 
 find_package(SFML 2.5 COMPONENTS system window graphics network audio REQUIRED)
 include_directories(${SFML_INCLUDE_DIRS})

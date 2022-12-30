@@ -1,50 +1,16 @@
 #include <iostream>
-#include "GridManager/Grid.h"
-#include "GridManager/Nodes.h"
 #include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
+#include "Include/Grid.h"
 
-const int32_t windowWidth = 1440;
-const int32_t windowHeight = 1080;
+const int32_t windowWidth = 800; // Cols
+const int32_t windowHeight = 600; // Rows
 
 int main() {
 
-    //Init Grid
-    Grid grid;
-
-    grid.setCols(30);
-    grid.setRows(30);
-    grid.setNodeSize(10);
-    grid.initGrid();
-
-    //Basic window setup
-
-    sf::RenderWindow window(sf::VideoMode(windowWidth,windowHeight), "Cellular Automata");
-
-    window.setFramerateLimit(60);
-
-//    sf::CircleShape circle;
-//
-//    circle.setRadius(40.0f);
-//    circle.setPosition((float) windowWidth/2 - circle.getRadius(), (float) windowHeight/2 - circle.getRadius());
-//    circle.setFillColor(sf::Color::White);
-
-    while(window.isOpen())
-    {
-        sf::Event event{};
-
-        while(window.pollEvent(event))
-        {
-            if(event.type == sf::Event::Closed)
-            {
-                window.close();
-            }
-
-            window.clear();
-
-            window.display();
-        }
-    }
-
+    //For testing purposes, when the program is run, the grid should pop up,
+    //and I should be able to place black squares on a white box grid for today
+    Grid gameGrid(windowWidth, windowHeight);
 
     return 0;
 }
