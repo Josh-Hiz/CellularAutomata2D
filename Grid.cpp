@@ -17,16 +17,17 @@ Grid::Grid(int gridWidth, int gridHeight) {
 
 void Grid::initGridVector() {
 
-        for (int i = 0; i < height; i++) {
+        for (int i = 0; i < width; i++) {
             std::vector<Cell> cellVec;
-            for (int j = 0; j < width; j++) {
+            for (int j = 0; j < height; j++) {
                 cellVec.push_back(*new Cell(i, j, Cell::DEAD));
             }
             gridVector.push_back(cellVec);
         }
 
-        for(int x = 0; x < gridVector.size(); x++){
-            for(int y = 0; y < gridVector[x].size(); y++){
+        //Not the most efficient but I just want to demonstrate the use of the Cell class, however this can be done in a single nested loop
+        for(int x = 0; x < width; x++){
+            for(int y = 0; y < height; y++){
                 gridVector[x][y].cell.setPosition(x*gridVector[x][y].cell.getSize().x,y*gridVector[x][y].cell.getSize().y);
                 gridVector[x][y].cell.setSize(sf::Vector2f(30,30));
                 gridVector[x][y].cell.setOutlineThickness(1);
@@ -89,7 +90,7 @@ void Grid::initGridVector() {
         std::cout << "Automata is running" << std::endl;
         isRunning = true;
         initGridVector();
-        display(30 * width, 30 * height + 50);
+        display(30 * width, 30 * height);
 
     }
 
