@@ -42,11 +42,24 @@ void Grid::initGridVector() {
         //Run the program as long as the window is open
         while (window.isOpen() && isRunning) {
             //Check all the window's events that were triggered since the last iteration of the loop
-            sf::Event event;
+            sf::Event event{};
             while (window.pollEvent(event)) {
                 //"close requested" event: closes the window
-                if (event.type == sf::Event::Closed) {
-                    window.close();
+                switch(event.type)
+                {
+                    case sf::Event::Closed:
+                        window.close();
+                        break;
+                    case sf::Event::KeyPressed:
+                        if (event.key.code == sf::Keyboard::E)
+                        {
+                            std::cout << "E is pressed! Begin Automata!" << std::endl;
+                        }
+                    case sf::Event::MouseButtonPressed:
+                        if (isRunning && event.mouseButton.button == sf::Mouse::Left)
+                        {
+                            std::cout << "Left mouse button is pressed! Stop Automata!" << std::endl;
+                        }
                 }
             }
 
