@@ -8,6 +8,8 @@
 #include <iostream>
 #include <vector>
 #include <cstdio>
+#include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
 
 //Use enum to keep track of the state of each cell
 //When grid is initialized, each cell will have a state of dead
@@ -16,6 +18,7 @@
 
 class Cell {
 
+public:
     enum State {
         ALIVE,
         DEAD
@@ -27,11 +30,12 @@ private:
     State cellState;
 
 public:
+    sf::RectangleShape cell;
 
     [[nodiscard]] int getX() const;
     [[nodiscard]] int getY() const;
 
-    bool getState();
+    State getState();
 
     void setPosition(int xPos, int yPos);
 

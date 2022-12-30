@@ -3,14 +3,14 @@
 #include <SFML/Window.hpp>
 #include "Include/Grid.h"
 
-const int32_t windowWidth = 800; // Cols
-const int32_t windowHeight = 600; // Rows
+const int32_t windowWidth = 1000; // Cols
+const int32_t windowHeight = 800; // Rows
 
 int main() {
 
     //For testing purposes, when the program is run, the grid should pop up,
     //and I should be able to place black squares on a white box grid for today
-    Grid gameGrid(windowWidth, windowHeight);
-
+    Grid gameOfLife(windowWidth, windowHeight);
+    gameOfLife.run();
     return 0;
 }

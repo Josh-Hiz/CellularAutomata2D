@@ -8,12 +8,17 @@
 #include <iostream>
 #include <vector>
 #include <cstdio>
-#include "Include/Cell.h"
+#include "Cell.h"
+#include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
 
 class Grid {
 
 private:
-    std::vector<Cell> gridVector;
+    std::vector<std::vector<Cell>> gridVector;
+    int32_t height;
+    int32_t width;
+    bool isRunning;
 
 public:
     void initGridVector();
@@ -26,6 +31,10 @@ public:
 
     void gridCopy();
     void update();
+
+    void run();
+
+    void display(int gWidth, int gHeight) const;
 
     Grid(int gridWidth, int gridHeight);
 
