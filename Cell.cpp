@@ -10,7 +10,7 @@ Cell::Cell(int xPos, int yPos, Cell::State state) {
     this->xCell = xPos;
     this->yCell = yPos;
     this->cellState = state;
-    cell.setSize(sf::Vector2f(30,30));
+    cell.setSize(sf::Vector2f(cellSize,cellSize));
 }
 
 int Cell::getX() const {

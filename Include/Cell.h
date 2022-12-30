@@ -28,6 +28,7 @@ private:
     std::int32_t xCell;
     std::int32_t yCell;
     State cellState;
+    const float cellSize = 30;
 
 public:
     sf::RectangleShape cell;
