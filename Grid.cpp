@@ -118,12 +118,12 @@ void Grid::initGridVector() {
             return 0;
         } else {
             int16_t count = 0;
-            for (int i = y - 1; i <= y + 1; i++) {
-                for (int j = x - 1; j <= x + 1; j++) {
+            for (int i = x - 1; i <= x + 1; i++) {
+                for (int j = y - 1; j <= y + 1; j++) {
 //                    std::cout << gridVector[j][i].getState() << std::endl;
-                    if(!(j == x and i == y)){
+                    if(!(i == x and j == y)){
 //                        std::cout << gridVector[i][j].getState() << ",";
-                        if (gridVector[j][i].getState() == 1) {
+                        if (gridVector[i][j].getState() == 1) {
                             count++;
                         }
                     }
