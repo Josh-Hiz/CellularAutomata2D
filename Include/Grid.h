@@ -29,10 +29,10 @@ public:
     void setWidth(int width);
     void setHeight(int height);
 
-    void placeCell(int x, int y);
-    void deleteCell(int x, int y);
+    static void placeCell(int x, int y, std::vector<std::vector<Cell>>& gridVec);
+    static void deleteCell(int x, int y, std::vector<std::vector<Cell>>& gridVec);
 
-    void gridCopy();
+    std::vector<std::vector<Cell>> gridCopy(const std::vector<std::vector<Cell>>& gridVec);
     void update();
 
     void run();
