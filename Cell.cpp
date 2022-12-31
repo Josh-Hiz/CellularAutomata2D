@@ -6,7 +6,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 
-Cell::Cell(int xPos, int yPos, Cell::State state) {
+Cell::Cell(int xPos, int yPos, int state) {
     this->xCell = xPos;
     this->yCell = yPos;
     this->cellState = state;
@@ -21,7 +21,7 @@ int Cell::getY() const {
     return yCell;
 }
 
-Cell::State Cell::getState() {
+int Cell::getState() const {
     return cellState;
 }
 
@@ -30,6 +30,6 @@ void Cell::setPosition(int xPos, int yPos) {
     yCell = yPos;
 }
 
-void Cell::setState(Cell::State state) {
+void Cell::setState(int state) {
     this->cellState = state;
 }

@@ -30,7 +30,7 @@ void Grid::initGridVector() {
         for (int i = 0; i < width; i++) {
             std::vector<Cell> cellVec;
             for (int j = 0; j < height; j++) {
-                cellVec.push_back(*new Cell(i, j, Cell::DEAD));
+                cellVec.push_back(*new Cell(i, j, 0));
             }
             gridVector.push_back(cellVec);
         }
@@ -114,9 +114,10 @@ void Grid::initGridVector() {
             int16_t count = 0;
             for (int i = y - 1; i <= y + 1; i++) {
                 for (int j = x - 1; j <= x + 1; j++) {
-                    if(x != j and y != i){
-                        std::cout << gridVector[i][j].getState() << ",";
-                        if (gridVector[i][j].getState() == Cell::State::ALIVE) {
+//                    std::cout << gridVector[j][i].getState() << std::endl;
+                    if(!(j == x and i == y)){
+//                        std::cout << gridVector[i][j].getState() << ",";
+                        if (gridVector[j][i].getState() == 1) {
                             count++;
                         }
                     }
@@ -144,13 +145,13 @@ void Grid::initGridVector() {
 
     void Grid::deleteCell(int x, int y) {
         std::cout << "X: " << x << " Y: " << y << std::endl;
-        gridVector[x][y].setState(Cell::State::DEAD);
+        gridVector[x][y].setState(0);
         gridVector[x][y].cell.setFillColor(sf::Color::Black);
     }
 
     void Grid::placeCell(int x, int y) {
         std::cout << "X: " << x << " Y: " << y << std::endl;
-        gridVector[x][y].setState(Cell::State::ALIVE);
+        gridVector[x][y].setState(1);
         gridVector[x][y].cell.setFillColor(sf::Color::White);
     }
 

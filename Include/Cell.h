@@ -27,7 +27,7 @@ public:
 private:
     std::int32_t xCell;
     std::int32_t yCell;
-    State cellState;
+    int cellState;
 
 public:
     constexpr static float cellSize = 30;
@@ -37,13 +37,13 @@ public:
     [[nodiscard]] int getX() const;
     [[nodiscard]] int getY() const;
 
-    State getState();
+    int getState() const;
 
-    void setState(State state);
+    void setState(int state);
 
     void setPosition(int xPos, int yPos);
 
-    Cell(int xPos, int yPos, Cell::State state);
+    Cell(int xPos, int yPos, int state);
 
 };
 
