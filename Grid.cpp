@@ -66,6 +66,7 @@ void Grid::initGridVector() {
                         {
                             std::cout << "E is pressed! Begin Automata!" << std::endl;
                             isRunning = true;
+//                            update(); <--For testing by frame
                         }
                         if (event.key.code == sf::Keyboard::P)
                         {
@@ -143,24 +144,25 @@ void Grid::initGridVector() {
     void Grid::update() {
         for(int i = 0; i < width; i++){
             for(int j = 0; j < height; j++){
-                if((countNeighbors(i,j) < 2  || countNeighbors(i,j) > 3) && gridVector[i][j].getState() == 1) {
+                if((countNeighbors(i,j) < 2 || countNeighbors(i,j) > 3) && (gridVector[i][j].getState())) {
                     deleteCell(i,j);
-                } else if(countNeighbors(i,j) == 3){
+                } else if((countNeighbors(i,j) == 3) && (!gridVector[i][j].getState())){
                     placeCell(i,j);
+                } else if ((countNeighbors(i,j) == 3 || countNeighbors(i,j) == 2) && (gridVector[i][j].getState())){
+                    continue;
                 }
             }
         }
-
     }
 
     void Grid::deleteCell(int x, int y) {
-        std::cout << "X: " << x << " Y: " << y << std::endl;
+//        std::cout << "Delete cell: " << x << "," << y << std::endl;
         gridVector[x][y].setState(0);
         gridVector[x][y].cell.setFillColor(sf::Color::Black);
     }
 
     void Grid::placeCell(int x, int y) {
-        std::cout << "X: " << x << " Y: " << y << std::endl;
+//        std::cout << "Place cell: " << x << "," << y << std::endl;
         gridVector[x][y].setState(1);
         gridVector[x][y].cell.setFillColor(sf::Color::White);
     }
