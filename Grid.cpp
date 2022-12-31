@@ -162,7 +162,7 @@ void Grid::initGridVector() {
 
     void Grid::placeCell(int x, int y, std::vector<std::vector<Cell>>& gridVec) {
         gridVec[x][y].setState(1);
-        gridVec[x][y].cell.setFillColor(sf::Color::White);
+        gridVec[x][y].cell.setFillColor(sf::Color::Yellow);
     }
 
     void Grid::run() {
