@@ -3,8 +3,8 @@
 #include <SFML/Window.hpp>
 #include "Include/Grid.h"
 
-const int32_t windowWidth = 30; // Cols
-const int32_t windowHeight = 30; // Rows
+const int32_t windowWidth = 50; // Cols
+const int32_t windowHeight = 50; // Rows
 
 int main() {
 

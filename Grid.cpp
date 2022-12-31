@@ -102,6 +102,11 @@ void Grid::initGridVector() {
                     window.draw(j.cell);
                 }
             }
+
+            if(isRunning){
+                update();
+            }
+
             window.display();
             sf::sleep(sf::milliseconds(window_delay));
         }
@@ -135,11 +140,16 @@ void Grid::initGridVector() {
         this->height = gHeight;
     }
 
-    void Grid::gridCopy() {
-
-    }
-
     void Grid::update() {
+        for(int i = 0; i < width; i++){
+            for(int j = 0; j < height; j++){
+                if((countNeighbors(i,j) < 2  || countNeighbors(i,j) > 3) && gridVector[i][j].getState() == 1) {
+                    deleteCell(i,j);
+                } else if(countNeighbors(i,j) == 3){
+                    placeCell(i,j);
+                }
+            }
+        }
 
     }
 
