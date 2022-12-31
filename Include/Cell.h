@@ -20,23 +20,26 @@ class Cell {
 
 public:
     enum State {
-        ALIVE,
-        DEAD
+        ALIVE = 1,
+        DEAD = 0
     };
 
 private:
     std::int32_t xCell;
     std::int32_t yCell;
     State cellState;
-    const float cellSize = 30;
 
 public:
+    constexpr static float cellSize = 30;
+
     sf::RectangleShape cell;
 
     [[nodiscard]] int getX() const;
     [[nodiscard]] int getY() const;
 
     State getState();
+
+    void setState(State state);
 
     void setPosition(int xPos, int yPos);
 

@@ -4,7 +4,7 @@
 #include "Include/Grid.h"
 
 const int32_t windowWidth = 30; // Cols
-const int32_t windowHeight = 20; // Rows
+const int32_t windowHeight = 30; // Rows
 
 int main() {
 

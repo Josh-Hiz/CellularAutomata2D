@@ -9,10 +9,20 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 
+constexpr int window_delay = 100;
+
+//Regular constructor used for testing purposes
 Grid::Grid(int gridWidth, int gridHeight) {
     this->height = gridHeight;
     this->width = gridWidth;
     this->isRunning = false;
+}
+
+//Default constructor
+Grid::Grid() {
+    this->height = 800;
+    this->width = 600;
+    this->isRunning= false;
 }
 
 void Grid::initGridVector() {
@@ -28,19 +38,20 @@ void Grid::initGridVector() {
         //Not the most efficient but I just want to demonstrate the use of the Cell class, however this can be done in a single nested loop
         for(int x = 0; x < width; x++){
             for(int y = 0; y < height; y++){
-                gridVector[x][y].cell.setPosition(x*gridVector[x][y].cell.getSize().x,y*gridVector[x][y].cell.getSize().y);
+                gridVector[x][y].cell.setPosition(float(x)*gridVector[x][y].cell.getSize().x,float(y)*gridVector[x][y].cell.getSize().y);
                 gridVector[x][y].cell.setSize(sf::Vector2f(30,30));
                 gridVector[x][y].cell.setOutlineThickness(1);
-                gridVector[x][y].cell.setOutlineColor(sf::Color::Black);
+                gridVector[x][y].cell.setOutlineColor(sf::Color::White);
+                gridVector[x][y].cell.setFillColor(sf::Color::Black);
             }
         }
     }
 
-    void Grid::display(int gWidth, int gHeight) const {
+    void Grid::display(int gWidth, int gHeight) {
         sf::RenderWindow window(sf::VideoMode(gWidth, gHeight), "Cellular Automata", sf::Style::Default);
 
         //Run the program as long as the window is open
-        while (window.isOpen() && isRunning) {
+        while (window.isOpen()) {
             //Check all the window's events that were triggered since the last iteration of the loop
             sf::Event event{};
             while (window.pollEvent(event)) {
@@ -54,12 +65,33 @@ void Grid::initGridVector() {
                         if (event.key.code == sf::Keyboard::E)
                         {
                             std::cout << "E is pressed! Begin Automata!" << std::endl;
+                            isRunning = true;
                         }
-                    case sf::Event::MouseButtonPressed:
-                        if (isRunning && event.mouseButton.button == sf::Mouse::Left)
+                        if (event.key.code == sf::Keyboard::P)
                         {
-                            std::cout << "Left mouse button is pressed! Stop Automata!" << std::endl;
+                            std::cout << "P is pressed! Automata has stopped/paused!" << std::endl;
+                            isRunning = false;
                         }
+
+                        break;
+                    case sf::Event::MouseButtonPressed:
+                        if(!isRunning)
+                        {
+                            if (event.mouseButton.button == sf::Mouse::Left)
+                            {
+                                placeCell(int(event.mouseButton.x)/int(Cell::cellSize),int(event.mouseButton.y)/int(Cell::cellSize));
+                                std::cout << "Number of alive neighbors: " << countNeighbors(int(event.mouseButton.x)/int(Cell::cellSize),int(event.mouseButton.y)/int(Cell::cellSize)) << std::endl;
+//                                std::cout<< "Current cell state: " << gridVector[int(event.mouseButton.x)/int(Cell::cellSize)][int(event.mouseButton.y)/int(Cell::cellSize)].getState() << std::endl;
+                            }
+                            if (event.mouseButton.button == sf::Mouse::Right)
+                            {
+                                deleteCell(int(event.mouseButton.x)/int(Cell::cellSize),int(event.mouseButton.y)/int(Cell::cellSize));
+                                std::cout << "Number of alive neighbors: " << countNeighbors(int(event.mouseButton.x)/int(Cell::cellSize),int(event.mouseButton.y)/int(Cell::cellSize)) << std::endl;
+//                                std::cout<< "Current cell state: " << gridVector[int(event.mouseButton.x)/int(Cell::cellSize)][int(event.mouseButton.y)/int(Cell::cellSize)].getState() << std::endl;
+
+                            }
+                        }
+                        break;
                 }
             }
 
@@ -71,7 +103,26 @@ void Grid::initGridVector() {
                 }
             }
             window.display();
+            sf::sleep(sf::milliseconds(window_delay));
+        }
+    }
 
+    int Grid::countNeighbors(int x, int y) {
+        if (x == 0 || x == width - 1 || y == 0 || y == height - 1) {
+            return 0;
+        } else {
+            int16_t count = 0;
+            for (int i = y - 1; i <= y + 1; i++) {
+                for (int j = x - 1; j <= x + 1; j++) {
+                    if(x != j and y != i){
+                        std::cout << gridVector[i][j].getState() << ",";
+                        if (gridVector[i][j].getState() == Cell::State::ALIVE) {
+                            count++;
+                        }
+                    }
+                }
+            }
+            return count;
         }
     }
 
@@ -91,19 +142,21 @@ void Grid::initGridVector() {
 
     }
 
-    void Grid::deleteCell() {
-
+    void Grid::deleteCell(int x, int y) {
+        std::cout << "X: " << x << " Y: " << y << std::endl;
+        gridVector[x][y].setState(Cell::State::DEAD);
+        gridVector[x][y].cell.setFillColor(sf::Color::Black);
     }
 
-    void Grid::placeCell() {
-
+    void Grid::placeCell(int x, int y) {
+        std::cout << "X: " << x << " Y: " << y << std::endl;
+        gridVector[x][y].setState(Cell::State::ALIVE);
+        gridVector[x][y].cell.setFillColor(sf::Color::White);
     }
 
     void Grid::run() {
         std::cout << "Automata is running" << std::endl;
-        isRunning = true;
         initGridVector();
         display(30 * width, 30 * height);
 
     }
-

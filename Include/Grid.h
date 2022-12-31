@@ -21,20 +21,25 @@ private:
     bool isRunning;
 
 public:
+
+    int countNeighbors(int x, int y);
+
     void initGridVector();
 
     void setWidth(int width);
     void setHeight(int height);
 
-    void placeCell();
-    void deleteCell();
+    void placeCell(int x, int y);
+    void deleteCell(int x, int y);
 
     void gridCopy();
     void update();
 
     void run();
 
-    void display(int gWidth, int gHeight) const;
+    void display(int gWidth, int gHeight);
+
+    Grid();
 
     Grid(int gridWidth, int gridHeight);
 

@@ -29,3 +29,7 @@ void Cell::setPosition(int xPos, int yPos) {
     xCell = xPos;
     yCell = yPos;
 }
+
+void Cell::setState(Cell::State state) {
+    this->cellState = state;
+}
