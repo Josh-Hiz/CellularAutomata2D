@@ -3,7 +3,6 @@
 //
 
 #include "Include/Cell.h"
-#include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 
 Cell::Cell(int xPos, int yPos, int state) {

@@ -19,12 +19,13 @@ private:
     int32_t height;
     int32_t width;
     bool isRunning;
+    bool randomizeNeighbors;
 
 public:
 
     int countNeighbors(int x, int y);
 
-    void initGridVector();
+    void initGridVector(bool randomStates);
 
     void setWidth(int width);
     void setHeight(int height);
@@ -41,7 +42,7 @@ public:
 
     Grid();
 
-    Grid(int gridWidth, int gridHeight);
+    Grid(int gridWidth, int gridHeight, bool random);
 
 };
 

@@ -19,10 +19,6 @@
 class Cell {
 
 public:
-    enum State {
-        ALIVE = 1,
-        DEAD = 0
-    };
 
 private:
     std::int32_t xCell;
@@ -30,7 +26,7 @@ private:
     int cellState;
 
 public:
-    constexpr static float cellSize = 30;
+    constexpr static float cellSize = 10;
 
     sf::RectangleShape cell;
 

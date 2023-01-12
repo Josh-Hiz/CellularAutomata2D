@@ -15,7 +15,7 @@
 ########################
 
 //The directory containing a CMake configuration file for Boost.
-Boost_DIR:PATH=/opt/homebrew/lib/cmake/Boost-1.80.0
+Boost_DIR:PATH=/opt/homebrew/lib/cmake/Boost-1.81.0
 
 Boost_FILESYSTEM_LIBRARY_RELEASE:STRING=/opt/homebrew/lib/libboost_filesystem-mt.dylib
 
@@ -236,16 +236,16 @@ SFML_DIR:PATH=/opt/homebrew/lib/cmake/SFML
 SFML_DOC_DIR:PATH=SFML_DOC_DIR-NOTFOUND
 
 //The directory containing a CMake configuration file for boost_atomic.
-boost_atomic_DIR:PATH=/opt/homebrew/lib/cmake/boost_atomic-1.80.0
+boost_atomic_DIR:PATH=/opt/homebrew/lib/cmake/boost_atomic-1.81.0
 
 //The directory containing a CMake configuration file for boost_filesystem.
-boost_filesystem_DIR:PATH=/opt/homebrew/lib/cmake/boost_filesystem-1.80.0
+boost_filesystem_DIR:PATH=/opt/homebrew/lib/cmake/boost_filesystem-1.81.0
 
 //The directory containing a CMake configuration file for boost_headers.
-boost_headers_DIR:PATH=/opt/homebrew/lib/cmake/boost_headers-1.80.0
+boost_headers_DIR:PATH=/opt/homebrew/lib/cmake/boost_headers-1.81.0
 
 //The directory containing a CMake configuration file for boost_system.
-boost_system_DIR:PATH=/opt/homebrew/lib/cmake/boost_system-1.80.0
+boost_system_DIR:PATH=/opt/homebrew/lib/cmake/boost_system-1.81.0
 
 
 ########################
@@ -386,7 +386,7 @@ CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding Boost
-FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[/opt/homebrew/lib/cmake/Boost-1.80.0/BoostConfig.cmake][cfound components: system filesystem ][v1.80.0(1.79.0)]
+FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[/opt/homebrew/lib/cmake/Boost-1.81.0/BoostConfig.cmake][cfound components: system filesystem ][v1.81.0(1.79.0)]
 //ADVANCED property for variable: boost_atomic_DIR
 boost_atomic_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: boost_filesystem_DIR

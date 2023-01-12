@@ -9,13 +9,15 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 
-constexpr int window_delay = 100;
+constexpr int window_delay = 50;
+const sf::Color GREY(169,169,169);
 
 //Regular constructor used for testing purposes
-Grid::Grid(int gridWidth, int gridHeight) {
+Grid::Grid(int gridWidth, int gridHeight,bool random) {
     this->height = gridHeight;
     this->width = gridWidth;
     this->isRunning = false;
+    this->randomizeNeighbors = random;
 }
 
 //Default constructor
@@ -23,16 +25,28 @@ Grid::Grid() {
     this->height = 800;
     this->width = 600;
     this->isRunning= false;
+    this->randomizeNeighbors = true;
 }
 
-void Grid::initGridVector() {
-
-        for (int i = 0; i < width; i++) {
-            std::vector<Cell> cellVec;
-            for (int j = 0; j < height; j++) {
-                cellVec.push_back(*new Cell(i, j, 0));
+void Grid::initGridVector(bool randomStates) {
+        if(!randomStates){
+            for (int i = 0; i < width; i++) {
+                std::vector<Cell> cellVec;
+                for (int j = 0; j < height; j++) {
+                    cellVec.push_back(*new Cell(i, j, 0));
+                }
+                gridVector.push_back(cellVec);
             }
-            gridVector.push_back(cellVec);
+        } else {
+            srand(time(nullptr));
+            for (int i = 0; i < width; i++) {
+                std::vector<Cell> cellVec;
+                for (int j = 0; j < height; j++) {
+                    int n = rand() % 2;
+                    cellVec.push_back(*new Cell(i, j, n));
+                }
+                gridVector.push_back(cellVec);
+            }
         }
 
         //Not the most efficient but I just want to demonstrate the use of the Cell class, however this can be done in a single nested loop
@@ -41,8 +55,8 @@ void Grid::initGridVector() {
                 gridVector[x][y].cell.setPosition(float(x)*gridVector[x][y].cell.getSize().x,float(y)*gridVector[x][y].cell.getSize().y);
                 gridVector[x][y].cell.setSize(sf::Vector2f(30,30));
                 gridVector[x][y].cell.setOutlineThickness(1);
-                gridVector[x][y].cell.setOutlineColor(sf::Color::White);
-                gridVector[x][y].cell.setFillColor(sf::Color::Black);
+                gridVector[x][y].cell.setOutlineColor(GREY);
+                if(gridVector[x][y].getState() == 1) {gridVector[x][y].cell.setFillColor(sf::Color::White);} else {gridVector[x][y].cell.setFillColor(sf::Color::Black);}
             }
         }
     }
@@ -81,13 +95,13 @@ void Grid::initGridVector() {
                             if (event.mouseButton.button == sf::Mouse::Left)
                             {
                                 placeCell(int(event.mouseButton.x)/int(Cell::cellSize),int(event.mouseButton.y)/int(Cell::cellSize),gridVector);
-                                std::cout << "Number of alive neighbors: " << countNeighbors(int(event.mouseButton.x)/int(Cell::cellSize),int(event.mouseButton.y)/int(Cell::cellSize)) << std::endl;
+//                                std::cout << "Number of alive neighbors: " << countNeighbors(int(event.mouseButton.x)/int(Cell::cellSize),int(event.mouseButton.y)/int(Cell::cellSize)) << std::endl;
 //                                std::cout<< "Current cell state: " << gridVector[int(event.mouseButton.x)/int(Cell::cellSize)][int(event.mouseButton.y)/int(Cell::cellSize)].getState() << std::endl;
                             }
                             if (event.mouseButton.button == sf::Mouse::Right)
                             {
                                 deleteCell(int(event.mouseButton.x)/int(Cell::cellSize),int(event.mouseButton.y)/int(Cell::cellSize),gridVector);
-                                std::cout << "Number of alive neighbors: " << countNeighbors(int(event.mouseButton.x)/int(Cell::cellSize),int(event.mouseButton.y)/int(Cell::cellSize)) << std::endl;
+//                                std::cout << "Number of alive neighbors: " << countNeighbors(int(event.mouseButton.x)/int(Cell::cellSize),int(event.mouseButton.y)/int(Cell::cellSize)) << std::endl;
 //                                std::cout<< "Current cell state: " << gridVector[int(event.mouseButton.x)/int(Cell::cellSize)][int(event.mouseButton.y)/int(Cell::cellSize)].getState() << std::endl;
 
                             }
@@ -162,13 +176,13 @@ void Grid::initGridVector() {
 
     void Grid::placeCell(int x, int y, std::vector<std::vector<Cell>>& gridVec) {
         gridVec[x][y].setState(1);
-        gridVec[x][y].cell.setFillColor(sf::Color::Yellow);
+        gridVec[x][y].cell.setFillColor(sf::Color::White);
     }
 
     void Grid::run() {
-        std::cout << "Automata is running" << std::endl;
-        initGridVector();
-        display(30 * width, 30 * height);
+        std::cout << "Automata is running, press E to begin the simulation, and P to pause, when paused, you can place your own cells!" << std::endl;
+        initGridVector(randomizeNeighbors);
+        display(int(Cell::cellSize * float(width)), int(Cell::cellSize * float(height)));
 
     }
 

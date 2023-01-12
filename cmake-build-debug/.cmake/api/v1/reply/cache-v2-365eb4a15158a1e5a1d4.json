@@ -15,7 +15,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/opt/homebrew/lib/cmake/Boost-1.80.0"
+			"value" : "/opt/homebrew/lib/cmake/Boost-1.81.0"
 		},
 		{
 			"name" : "Boost_FILESYSTEM_LIBRARY_RELEASE",
@@ -1199,7 +1199,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "[/opt/homebrew/lib/cmake/Boost-1.80.0/BoostConfig.cmake][cfound components: system filesystem ][v1.80.0(1.79.0)]"
+			"value" : "[/opt/homebrew/lib/cmake/Boost-1.81.0/BoostConfig.cmake][cfound components: system filesystem ][v1.81.0(1.79.0)]"
 		},
 		{
 			"name" : "SFML_DIR",
@@ -1239,7 +1239,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/opt/homebrew/lib/cmake/boost_atomic-1.80.0"
+			"value" : "/opt/homebrew/lib/cmake/boost_atomic-1.81.0"
 		},
 		{
 			"name" : "boost_filesystem_DIR",
@@ -1255,7 +1255,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/opt/homebrew/lib/cmake/boost_filesystem-1.80.0"
+			"value" : "/opt/homebrew/lib/cmake/boost_filesystem-1.81.0"
 		},
 		{
 			"name" : "boost_headers_DIR",
@@ -1271,7 +1271,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/opt/homebrew/lib/cmake/boost_headers-1.80.0"
+			"value" : "/opt/homebrew/lib/cmake/boost_headers-1.81.0"
 		},
 		{
 			"name" : "boost_system_DIR",
@@ -1287,7 +1287,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/opt/homebrew/lib/cmake/boost_system-1.80.0"
+			"value" : "/opt/homebrew/lib/cmake/boost_system-1.81.0"
 		}
 	],
 	"kind" : "cache",
